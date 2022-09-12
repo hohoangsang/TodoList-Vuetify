@@ -25,12 +25,12 @@
 
     <p class="caption">This is caption</p>
 
-    <div class="font-weight-bold text-center">
-      Test text.
-    </div>
+    <div class="font-weight-bold text-center">Test text.</div>
 
     <!-- button & icon -->
-    <v-btn :loading="false" class="red accent-4 white--text mr-2">Click me</v-btn>
+    <v-btn :loading="false" class="red accent-4 white--text mr-2"
+      >Click me</v-btn
+    >
 
     <v-btn depressed dark color="pink" class="mr-2">Click me</v-btn>
 
