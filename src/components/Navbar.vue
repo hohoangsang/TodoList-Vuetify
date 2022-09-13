@@ -12,6 +12,46 @@
 
       <v-spacer />
 
+      <!-- <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn color="primary" dark v-bind="attrs" v-on="on">
+            Dropdown
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(item, index) in items" :key="index">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu> -->
+
+      <v-menu offset-y left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-bind="attrs" v-on="on" plain>
+            <v-icon left large>mdi-chevron-down</v-icon>
+            <span>Menu</span>
+          </v-btn>
+        </template>
+        <v-list nav dense>
+          <v-list-item
+            v-for="link in links"
+            :key="link.route"
+            router
+            :to="link.route"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ link.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <v-btn plain class="font-weight-bold">
         <span>Sign out</span>
         <v-icon right>mdi-logout-variant</v-icon>
@@ -41,19 +81,26 @@
 
       <v-divider dark />
 
+      <Popup />
+
       <v-list nav dense>
         <v-list-item-group v-model="selectedLink" class="white--text" dark>
-            <v-list-item v-for="link in links" :key="link.route" router :to="link.route">
-                <v-list-item-icon>
-                    <v-icon>{{ link.icon }}</v-icon>
-                </v-list-item-icon>
+          <v-list-item
+            v-for="link in links"
+            :key="link.route"
+            router
+            :to="link.route"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-icon>
 
-                <v-list-item-content>
-                    <v-list-item-title>
-                        {{ link.text }}
-                    </v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ link.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -61,7 +108,12 @@
 </template>
 
 <script>
+import Popup from "./Popup.vue";
+
 export default {
+  components: {
+    Popup,
+  },
   data() {
     return {
       drawer: true,
