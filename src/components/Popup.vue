@@ -74,7 +74,7 @@
 
 <script>
 import moment from "moment";
-import db from "@/firebase";
+// import db from "@/firebase";
 
 export default {
   data() {
@@ -107,11 +107,13 @@ export default {
           due: this.dueDate
         }
 
-        db.collection('projects').add(submitProject).then(() => {
-          console.log("added to firebase")
-        }).catch((err) => {
-          console.log("error ", err)
-        });
+        console.log(submitProject)
+
+        // db.collection('projects').add(submitProject).then(() => {
+        //   console.log("added to firebase")
+        // }).catch((err) => {
+        //   console.log("error ", err)
+        // });
       }
     },
 
