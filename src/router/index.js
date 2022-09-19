@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import Project from '../views/Project.vue'
-import Learning from '../views/Learning.vue'
 import Team from "../views/Team.vue"
+import Alle from "../views/Alle.vue"
 
 Vue.use(VueRouter)
 
@@ -24,9 +24,9 @@ const routes = [
     component: Team
   },
   {
-    path: '/learning',
-    name: 'learning',
-    component: Learning
+    path: '/alle',
+    name: 'alle',
+    component: Alle
   }
 ]
 
